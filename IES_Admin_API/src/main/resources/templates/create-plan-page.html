@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+	<div class="container">
+<br>  
+<hr>
+
+ <div class="container-scroller">
+<div class="col-md-6">
+<div class="card">
+<header class="card-header">
+	
+	<h4 class="card-title mt-2">Create Plan</h4>
+</header>
+<article class="card-body">
+<form th:action="@{/addPlan}" th:object="${formObj}" th:method="POST">
+	<div class="form-row">
+		<div class="col form-group">
+			<label>Plan name </label>   
+		  	<input type="text" class="form-control" placeholder="" name ="planName" th:field="*{planName}">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Plan Start Date</label>
+		  	<input type="date" class="form-control" placeholder="" name ="planStartDate" th:field="*{planStartDate}">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Plan End Date</label>
+		  	<input type="date" class="form-control" placeholder="" name="planEndDate" th:field="*{planEndDate}">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	
+	<div class="form-row">
+		<div class="form-group col-md-6">
+		  <label>Plan Category</label>
+	 <select id="form2Example22" class="form-select" name="planCategory"  th:field="*{planCategory}">
+		 <option value ="">-Select-</option>
+		 <option th:each="planNames : ${planCategoryNames}" th:value="${planNames}" th:text="${planNames}"></option>
+	</select>
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row.// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Submit  </button>
+    </div> <!-- form-group// -->      
+                                             
+</form>
+</article> <!-- card-body end .// -->
+</div> <!-- card.// -->
+</div> <!-- col.//-->
+
+</div> <!-- row.//-->
+
+
+</div> 
+<!--container end.//-->
+
+</body>
+</html>

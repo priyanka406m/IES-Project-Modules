@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+<title>registration form</title>
+</head>
+
+<h2 ALIGN="CENTER">Registration form</h2>
+
+<p th:text="${successMsg}" class="text-success">
+<p th:text="${errMsg}" class="text-danger">
+<form th:action="@{/signup}" th:object="${user}" method="POST">
+									
+<table border="0" align="center">
+<tbody>
+
+
+<tr>
+<td><input id="name" maxlength="50" name="role" type="hidden" th:field="*{role}" /></td>
+</tr>
+
+<tr>
+<td><label for="name">Name: </label></td>
+<td><input id="name" maxlength="50" name="name" type="text" th:field="*{name}" /></td>
+</tr>
+
+<tr>
+<td><label for="mobile">MobileNo: </label></td>
+<td><input id="mobileNumber" maxlength="50" name="mobileNumber" type="number" th:field="*{mobileNumber}"/></td>
+</tr>
+
+<tr>
+<td><label for="gender">Gender: </label></td>
+<td><label for="male">Male</label></td>
+<td><input id="gender" maxlength="50" name="Male" type="radio" value="male" th:field="*{gender}"/></td>
+<td><label for="female">Female</label></td>
+<td><input id="gender" maxlength="50" name="FeMale" type="radio" value="female" th:field="*{gender}"/></td>
+</tr>
+
+<tr>
+<td><label for="email">Email_Address:</label></td>
+<td><input id="email" maxlength="50" name="email" type="text" th:field="*{email}"/></td>
+</tr>
+
+<tr>
+<td><label for="dateOfBirth">DateOfBirth:</label></td>
+<td><input id="dateOfBirth" maxlength="50" name="dateOfBirth" type="date" th:field="*{dateOfBirth}"/></td>
+</tr>
+
+<tr>
+<td><label for="ssn">SSN:</label></td>
+<td><input id="ssn" maxlength="50" name="ssn" type="number" th:field="*{ssn}"/></td>
+</tr>
+
+
+<tr>
+<td><input type="submit" value="Submit" /></td>
+</tr>
+
+</tbody>
+</table>
+</form>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="www.thymeleaf.org">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h4>View Account</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>S.No.</th>
+      	<th>Name</th>
+        <th>Email</th>
+        <th>MobileNo.</th>
+        <th>Gender</th>
+        <th>SSN</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="enq :${viewCwRecords}">
+        <td th:text="${enqStat.index} +1" />
+		<td th:text="${enq.name}" />
+		<td th:text="${enq.email}" />
+		<td th:text="${enq.mobileNumber}" />
+		<td th:text="${enq.gender}" />
+		<td th:text="${enq.ssn}" />
+		<td><a href="@{/edit}" class="btn btn-primary">Edit</a></td>
+		</tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>
